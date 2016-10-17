@@ -1,6 +1,5 @@
 package heartbeat.social.tcs.socialhb.activity.nav_drawer_activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +20,7 @@ public class Settings extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        assert toolbar != null;
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

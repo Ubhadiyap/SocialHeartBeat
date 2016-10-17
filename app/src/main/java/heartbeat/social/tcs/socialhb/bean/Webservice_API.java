@@ -3,7 +3,7 @@ package heartbeat.social.tcs.socialhb.bean;
 /**
  * Created by admin on 18/07/16.
  */
-public class Web_API_Config
+public class Webservice_API
 {
 
     //Local Server

@@ -51,7 +51,7 @@ import heartbeat.social.tcs.socialhb.bean.CSRInitCatData;
 
 
         Log.e("Cat Data ", csr_init_category_data_list.get(position).getCat_data());
-        //Picasso.with(context).load(Web_API_Config.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
+        //Picasso.with(context).load(Webservice_API.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
 
         //Picasso.with(context).load("http://"+modules.get(position).getImage()).into(holder.v_imageView);
         //holder.v_imageView.setImageResource(modules.get(position).getImageId());

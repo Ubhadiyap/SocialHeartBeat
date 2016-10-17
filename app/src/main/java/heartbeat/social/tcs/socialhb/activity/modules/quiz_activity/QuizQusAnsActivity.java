@@ -14,14 +14,12 @@ import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -33,22 +31,15 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.activity.SignIn;
 import heartbeat.social.tcs.socialhb.activity.modules.HeartBeatIndexModule;
-import heartbeat.social.tcs.socialhb.bean.CSRInit;
-import heartbeat.social.tcs.socialhb.bean.Module;
 import heartbeat.social.tcs.socialhb.bean.QuizAnswer;
 import heartbeat.social.tcs.socialhb.bean.QuizQuestion;
 import heartbeat.social.tcs.socialhb.bean.QuizQuestionAnswer;
 import heartbeat.social.tcs.socialhb.bean.QuizScore;
 import heartbeat.social.tcs.socialhb.bean.QuizSelectedAnswer;
-import heartbeat.social.tcs.socialhb.bean.SignInUser;
-import heartbeat.social.tcs.socialhb.bean.User;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.sqliteDb.DBHelper;
-import heartbeat.social.tcs.socialhb.sqliteDb.FirebaseTokenStorage;
 import heartbeat.social.tcs.socialhb.sqliteDb.QuizDBHelper;
-import heartbeat.social.tcs.socialhb.utility.ModuleSelector;
 
 public class QuizQusAnsActivity extends AppCompatActivity {
 
@@ -121,7 +112,7 @@ public class QuizQusAnsActivity extends AppCompatActivity {
 
         QuizDBHelper quizDBHelper = new QuizDBHelper(getApplicationContext());
 
-        String url = Web_API_Config.get_limited_qus_with_ans_without_right_ans + quizDBHelper.getQuizStartingData().getNo_of_qus();
+        String url = Webservice_API.get_limited_qus_with_ans_without_right_ans + quizDBHelper.getQuizStartingData().getNo_of_qus();
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
@@ -335,7 +326,7 @@ public class QuizQusAnsActivity extends AppCompatActivity {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("quizSelectedAnswers", jsonArray);
 
-       String url = Web_API_Config.calculating_quiz_score;
+        String url = Webservice_API.calculating_quiz_score;
 
         //Create JSONObjectRequest for Volley
         JsonObjectRequest jsonRequest = new JsonObjectRequest
@@ -387,7 +378,7 @@ public class QuizQusAnsActivity extends AppCompatActivity {
         jsonObject.put("no_of_qus", quizDBHelper.getQuizStartingData().getNo_of_qus());
         jsonObject.put("area_of_interest_cat_id", quizScore_response.getArea_of_interest_cat_id());
 
-        String url = Web_API_Config.posting_final_quiz_score;
+        String url = Webservice_API.posting_final_quiz_score;
 
         //Create JSONObjectRequest for Volley
         JsonObjectRequest jsonRequest = new JsonObjectRequest

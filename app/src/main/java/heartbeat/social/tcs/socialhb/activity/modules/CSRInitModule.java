@@ -1,6 +1,5 @@
 package heartbeat.social.tcs.socialhb.activity.modules;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,15 +22,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.activity.Dashboard;
 import heartbeat.social.tcs.socialhb.adapter.CSRInitAdapter;
-import heartbeat.social.tcs.socialhb.adapter.ModuleAdapter;
 import heartbeat.social.tcs.socialhb.bean.CSRInit;
-import heartbeat.social.tcs.socialhb.bean.Module;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.network.CheckInternetConnection;
 import heartbeat.social.tcs.socialhb.utility.CSRInitModuleSelector;
-import heartbeat.social.tcs.socialhb.utility.ModuleSelector;
 
 public class CSRInitModule extends AppCompatActivity {
 
@@ -88,7 +83,7 @@ public class CSRInitModule extends AppCompatActivity {
 
         prgBar1.setVisibility(View.VISIBLE);
 
-        String url = Web_API_Config.csr_init_enabled_modules;
+        String url = Webservice_API.csr_init_enabled_modules;
         Log.e("CSR Initiative URL", url);
 
 

@@ -23,74 +23,97 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.Splash">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SignIn" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.Trial"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.Dashboard"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.HeartBeatIndexModule"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.GEOModule"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.CSRInitModule"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.UtilityModule"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.sub_modules.CSRInitCategoryDescription"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.nav_drawer_activity.Profile"
             android:parentActivityName=".activity.Dashboard"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
+                android:screenOrientation="portrait"
                 android:value="heartbeat.social.tcs.socialhb.activity.Dashboard" />
         </activity>
         <activity
             android:name=".activity.nav_drawer_activity.Notifications"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.sub_modules.WasteToWealth"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.sub_modules.EnviroEngineer"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.sub_modules.DonateItem"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.sub_modules.ViewStatus"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.nav_drawer_activity.Settings"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.quiz_activity.QuizStartActivity"
+            android:screenOrientation="portrait"
             android:noHistory="true"
             android:theme="@style/CustomStyle1" />
         <activity
             android:name=".activity.modules.quiz_activity.QuizQusAnsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1"
             android:noHistory="true"/>
         <activity
             android:name=".activity.modules.quiz_activity.QuizSubmitActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1"/>
         <activity
             android:name=".activity.modules.quiz_activity.QuizResultActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomStyle1"/>
 
         <service android:name=".service.MyFirebaseMessagingService">

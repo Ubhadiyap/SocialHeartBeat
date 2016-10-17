@@ -1,15 +1,12 @@
 package heartbeat.social.tcs.socialhb.activity.modules;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -27,10 +24,9 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 import heartbeat.social.tcs.socialhb.R;
 import heartbeat.social.tcs.socialhb.activity.Dashboard;
 import heartbeat.social.tcs.socialhb.activity.modules.quiz_activity.QuizQusAnsActivity;
-import heartbeat.social.tcs.socialhb.activity.modules.quiz_activity.QuizStartActivity;
 import heartbeat.social.tcs.socialhb.bean.CSRInit;
 import heartbeat.social.tcs.socialhb.bean.QuizScore;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.sqliteDb.DBHelper;
 import heartbeat.social.tcs.socialhb.sqliteDb.QuizDBHelper;
 
@@ -132,7 +128,7 @@ public class HeartBeatIndexModule extends AppCompatActivity {
     public void getStartingQuizData() throws JSONException
     {
 
-        String url = Web_API_Config.posting_starting_quiz_data;
+        String url = Webservice_API.posting_starting_quiz_data;
 
         DBHelper dbHelper =new DBHelper(getApplicationContext());
         JSONObject user_json_obj = new JSONObject();
@@ -191,7 +187,7 @@ public class HeartBeatIndexModule extends AppCompatActivity {
     {
 
 
-        String url = Web_API_Config.get_quiz_prev_score_details;
+        String url = Webservice_API.get_quiz_prev_score_details;
 
         DBHelper dbHelper =new DBHelper(getApplicationContext());
         JSONObject user_json_obj = new JSONObject();
@@ -242,7 +238,7 @@ public class HeartBeatIndexModule extends AppCompatActivity {
 
     public void getInterestCategoryName(int cat_id){
 
-        String url = Web_API_Config.csr_init_single_module + String.valueOf(cat_id);
+        String url = Webservice_API.csr_init_single_module + String.valueOf(cat_id);
 
         //Create JSONObjectRequest for Volley
         JsonObjectRequest jsonRequest = new JsonObjectRequest

@@ -1,6 +1,5 @@
 package heartbeat.social.tcs.socialhb.activity.modules.sub_modules;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -24,14 +23,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.activity.Dashboard;
 import heartbeat.social.tcs.socialhb.adapter.CSRInitCatDataAdapter;
-import heartbeat.social.tcs.socialhb.adapter.ModuleAdapter;
 import heartbeat.social.tcs.socialhb.bean.CSRInitCatData;
-import heartbeat.social.tcs.socialhb.bean.Module;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.network.CheckInternetConnection;
-import heartbeat.social.tcs.socialhb.utility.ModuleSelector;
 
 public class CSRInitCategoryDescription extends AppCompatActivity {
 
@@ -92,7 +87,7 @@ public class CSRInitCategoryDescription extends AppCompatActivity {
     public void getCategoryData(){
         prgBar1.setVisibility(View.VISIBLE);
 
-        String url = Web_API_Config.csr_init_category_data + String.valueOf(module_cat_id);
+        String url = Webservice_API.csr_init_category_data + String.valueOf(module_cat_id);
         Log.e("URL", url);
 
 

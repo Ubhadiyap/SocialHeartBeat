@@ -5,22 +5,15 @@ import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.activity.modules.UtilityModule;
-import heartbeat.social.tcs.socialhb.bean.Module;
 import heartbeat.social.tcs.socialhb.bean.UtilityCategory;
-import heartbeat.social.tcs.socialhb.utility.ModuleSelector;
 import heartbeat.social.tcs.socialhb.utility.UtilityModuleSelector;
 
 /**
@@ -49,7 +42,7 @@ public class UtilityCatAdapter extends RecyclerView.Adapter<UtilityCatAdapter.Vi
     public void onBindViewHolder(ViewUtilityCatAdapter holder, int position) {
         holder.v_utilityCategory.setText(utility_enabled_modules.get(position).getUtility_cat_name());
 
-        //Picasso.with(context).load(Web_API_Config.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
+        //Picasso.with(context).load(Webservice_API.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
 
         //Picasso.with(context).load("http://"+modules.get(position).getImage()).into(holder.v_imageView);
         //holder.v_imageView.setImageResource(modules.get(position).getImageId());

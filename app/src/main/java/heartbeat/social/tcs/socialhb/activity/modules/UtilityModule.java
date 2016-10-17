@@ -1,6 +1,5 @@
 package heartbeat.social.tcs.socialhb.activity.modules;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,13 +22,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.adapter.CSRInitAdapter;
 import heartbeat.social.tcs.socialhb.adapter.UtilityCatAdapter;
-import heartbeat.social.tcs.socialhb.bean.CSRInit;
 import heartbeat.social.tcs.socialhb.bean.UtilityCategory;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.network.CheckInternetConnection;
-import heartbeat.social.tcs.socialhb.utility.CSRInitModuleSelector;
 
 public class UtilityModule extends AppCompatActivity {
 
@@ -89,7 +85,7 @@ public class UtilityModule extends AppCompatActivity {
     {
         prgBar1.setVisibility(View.VISIBLE);
 
-        String url = Web_API_Config.utility_enabled_module;
+        String url = Webservice_API.utility_enabled_module;
         Log.e("URL", url);
 
 

@@ -1,13 +1,10 @@
 package heartbeat.social.tcs.socialhb.activity.nav_drawer_activity;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.provider.Settings;
@@ -26,7 +23,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
@@ -44,14 +40,8 @@ import java.util.UUID;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import heartbeat.social.tcs.socialhb.R;
-import heartbeat.social.tcs.socialhb.activity.Dashboard;
-import heartbeat.social.tcs.socialhb.bean.User;
-import heartbeat.social.tcs.socialhb.bean.UserProfile;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
-import heartbeat.social.tcs.socialhb.network.CheckInternetConnection;
-import heartbeat.social.tcs.socialhb.session.SessionManager;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.sqliteDb.DBHelper;
-import heartbeat.social.tcs.socialhb.sqliteDb.ProfileDBHelper;
 
 public class Profile extends AppCompatActivity {
 
@@ -150,7 +140,7 @@ public class Profile extends AppCompatActivity {
         DBHelper dbHelper = new DBHelper(getApplicationContext());
         String id = dbHelper.getUserID();
 
-        String url = Web_API_Config.user_profile_api+id;
+        String url = Webservice_API.user_profile_api + id;
 
 
 
@@ -353,8 +343,7 @@ public class Profile extends AppCompatActivity {
         updated_home_address        = profile_edit_home_address.getText().toString();
 
 
-
-        String url = Web_API_Config.user_profile_update_api;
+        String url = Webservice_API.user_profile_update_api;
 
         DBHelper dbHelper = new DBHelper(getApplicationContext());
 
@@ -540,7 +529,7 @@ public class Profile extends AppCompatActivity {
     public void imageUpdationProcesss()
     {
 
-        String url = Web_API_Config.user_profile_pic_update_api;
+        String url = Webservice_API.user_profile_pic_update_api;
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 

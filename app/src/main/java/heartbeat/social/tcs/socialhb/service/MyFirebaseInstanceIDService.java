@@ -12,26 +12,20 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cn.pedant.SweetAlert.SweetAlertDialog;
-import heartbeat.social.tcs.socialhb.activity.Dashboard;
-import heartbeat.social.tcs.socialhb.activity.SignIn;
-import heartbeat.social.tcs.socialhb.bean.SignInUser;
-import heartbeat.social.tcs.socialhb.bean.User;
 import heartbeat.social.tcs.socialhb.bean.UserFirebaseToken;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.network.CheckInternetConnection;
-import heartbeat.social.tcs.socialhb.sqliteDb.DBHelper;
-import heartbeat.social.tcs.socialhb.sqliteDb.FirebaseTokenStorage;
+import heartbeat.social.tcs.socialhb.utility.Utils;
 
 /**
  * Created by admin on 28/07/16.
  */
-public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
-{
+public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
 
 
     private static final String TAG = "MyFirebaseInstanceID";
@@ -52,7 +46,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
         //Checking Internet Connection
         CheckInternetConnection checkInternetConnection = new CheckInternetConnection();
         Log.e(TAG, "Outside Check Internet Connection");
-        if(checkInternetConnection.checkingInternetConnection(getApplicationContext())){
+        if (checkInternetConnection.checkingInternetConnection(getApplicationContext())) {
             Log.e(TAG, "Inside Check Internet Connection");
             sendRegistrationToServer(refreshedToken);
         }
@@ -62,7 +56,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
 
     /**
      * Persist token to third-party servers.
-     *
+     * <p/>
      * Modify this method to associate the user's FCM InstanceID token with any server-side account
      * maintained by your application.
      *
@@ -71,16 +65,16 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
     private void sendRegistrationToServer(String token) {
         //Create JSONObjectRequest for Volley
 
-        String url = Web_API_Config.without_signin_firebase_push_notification_API;
+        String url = Webservice_API.without_signin_firebase_push_notification_API;
 
-        if(token == "" || token == null){
+        if (token == "" || token == null) {
             token = "MyCustomToken";
         }
 
         //Getting Wifi Address
         WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        WifiInfo wInfo          = wifiManager.getConnectionInfo();
-        String macAddress       = wInfo.getMacAddress();
+        WifiInfo wInfo = wifiManager.getConnectionInfo();
+        String macAddress = wInfo.getMacAddress();
 
         JSONObject jsonObject = new JSONObject();
         try {
@@ -99,10 +93,13 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
                         // the response is already constructed as a JSONObject!
 
 
-                            Log.e(TAG, response.toString());
+                        Log.e(TAG, response.toString());
 
-                        try {
-                            int token_id = response.getInt("id");
+                        Gson gson = new Gson();
+
+                        UserFirebaseToken userFirebaseToken = gson.fromJson(response.toString(), UserFirebaseToken.class);
+
+                          /*  int token_id = response.getInt("id");
                             int user_id  = response.getInt("user_id");
                             String token = response.getString("token");
                             String mac_id = response.getString("mac_id");
@@ -113,16 +110,10 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService
                             userFirebaseToken.setToken(token);
                             userFirebaseToken.setMac_id(mac_id);
                             userFirebaseToken.setSuccess(success);
-
-                            FirebaseTokenStorage firebaseTokenStorage = new FirebaseTokenStorage(getApplicationContext());
-                            firebaseTokenStorage.addToken(userFirebaseToken);
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+*/
 
 
-
+                        Utils.setToken(userFirebaseToken, getApplicationContext());
 
 
                     }

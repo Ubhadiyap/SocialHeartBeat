@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -21,8 +20,6 @@ import java.util.ArrayList;
 import heartbeat.social.tcs.socialhb.R;
 import heartbeat.social.tcs.socialhb.activity.modules.sub_modules.CSRInitCategoryDescription;
 import heartbeat.social.tcs.socialhb.bean.CSRInit;
-import heartbeat.social.tcs.socialhb.bean.Module;
-import heartbeat.social.tcs.socialhb.utility.ModuleSelector;
 
 /**
  * Created by admin on 22/07/16.
@@ -52,7 +49,7 @@ public class CSRInitAdapter extends RecyclerView.Adapter<CSRInitAdapter.ViewCSRI
 
 
         Log.e("Module Image Path : ", csr_init_categories.get(position).getCsr_module_icon());
-        //Picasso.with(context).load(Web_API_Config.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
+        //Picasso.with(context).load(Webservice_API.root_image_url + modules.get(position).getImage()).error(R.drawable.image_loading_error).into(holder.v_imageView);
 
         //Picasso.with(context).load("http://"+modules.get(position).getImage()).into(holder.v_imageView);
         //holder.v_imageView.setImageResource(modules.get(position).getImageId());

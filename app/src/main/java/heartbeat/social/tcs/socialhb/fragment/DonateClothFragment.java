@@ -24,7 +24,7 @@ import org.json.JSONObject;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import heartbeat.social.tcs.socialhb.R;
 import heartbeat.social.tcs.socialhb.activity.modules.sub_modules.ViewStatus;
-import heartbeat.social.tcs.socialhb.bean.Web_API_Config;
+import heartbeat.social.tcs.socialhb.bean.Webservice_API;
 import heartbeat.social.tcs.socialhb.sqliteDb.DBHelper;
 
 /**
@@ -119,7 +119,7 @@ public class DonateClothFragment extends Fragment
     }
 
     public void postingDataToServer() throws JSONException {
-        String url = Web_API_Config.donate_item;
+        String url = Webservice_API.donate_item;
 
         DBHelper dbHelper = new DBHelper(getActivity());
         String user_id    = dbHelper.getUserID();
